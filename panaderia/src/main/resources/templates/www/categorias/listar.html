@@ -1,0 +1,27 @@
+<html xmlns:th="http://www.thymeleaf.org" layout:decorate="~{/www/layout/base}">
+
+<div layout:fragment="MainBase">
+    <!-- Contenido principal -->
+    <div class="container mt-4">
+        
+        <section id="servicios">
+            <h2 class="mb-4 text-center">Listado de Categorías</h2>
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+                <div class="col" th:each="categoria : ${Lcategorias}">
+                    <div class="card h-100">
+                        <img th:src="${categoria.imagen}" class="card-img-top" alt="Imagen de la gama" style="object-fit: cover; height: 200px;">
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="${categoria.tipo}"></h5>
+                            <p class="card-text" th:text="${categoria.descripcion}"></p>
+                        </div>
+                        <div class="card-footer text-center">
+                            <a th:href="@{/productos/categoria/{tipo}(tipo=${categoria.tipo})}" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+</html>

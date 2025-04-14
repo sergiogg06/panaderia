@@ -1,0 +1,26 @@
+<html xmlns:th="http://www.thymeleaf.org" layout:decorate="~{/www/layout/base}">
+
+<div layout:fragment="MainBase">
+    <!-- Contenido principal -->
+    <div class="container mt-4">
+        
+        <section id="servicios">
+            <h2 class="mb-4 text-center">Listado de Productos</h2>
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+                <div class="col" th:each="producto : ${Lproductos}">
+                    <div class="card h-100">
+                        <img th:src="${producto.imagen}" class="card-img-top" alt="Imagen del producto" style="object-fit: cover; height: 200px;">
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="${producto.nombre}"></h5>
+                            <p class="card-text"><strong>Categoría:</strong> <span th:text="${producto.categoria}"></span></p>
+                            <p class="card-text" th:text="${producto.descripcion}"></p>
+                            <p class="card-text"><strong>Precio:</strong> $<span th:text="${producto.precio}"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+</html>

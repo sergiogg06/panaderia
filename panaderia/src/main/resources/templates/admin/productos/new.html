@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" layout:decorate="~{/admin/layout/base}">
+
+<head>
+    <title>Nuevo Producto</title>
+    <!-- Bootstrap CSS -->
+    <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+
+<body>
+    <main layout:fragment="mainBase">
+        <div class="container mt-4">
+            <h4 class="text-center mb-4">Nuevo Producto</h4>
+
+            <form th:action="@{/admin/productos/new}" th:object="${producto}" method="post" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre del Producto</label>
+                    <input type="text" class="form-control" id="nombre" th:field="*{nombre}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="descripcion" class="form-label">Descripción</label>
+                    <textarea class="form-control" id="descripcion" th:field="*{descripcion}" required></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label for="precio" class="form-label">Precio</label>
+                    <input type="number" class="form-control" id="precio" th:field="*{precio}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="categoria" class="form-label">Categoría</label>
+                    <select class="form-select" id="categoria" th:field="*{categoria}" required>
+                        <option th:each="categoria : ${categorias}" th:value="${categoria.tipo}" th:text="${categoria.tipo}"></option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="imagen" class="form-label">Imagen</label>
+                    <input type="file" class="form-control" id="imagen" name="file">
+                </div>
+
+                <button type="submit" class="btn btn-success w-100">Guardar Producto</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</body>
+
+</html>

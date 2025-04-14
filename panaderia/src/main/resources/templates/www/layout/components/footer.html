@@ -1,0 +1,60 @@
+<!-- Fragmento de Thymeleaf para el pie de página -->
+<footer th:fragment="footerbase" class="bg-light text-center text-lg-start">
+    <div class="container p-4">
+        <div class="row">
+            <!-- Información sobre la panadería -->
+            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Panadería</h5>
+                <p>
+                    Ofrecemos los mejores productos de panadería, hechos con ingredientes frescos y mucho amor.
+                </p>
+            </div>
+
+            <!-- Información de contacto -->
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase mb-0">Contacto</h5>
+                <ul class="list-unstyled">
+                    <li>
+                        <p><i class="fas fa-map-marker-alt"></i> Dirección: Calle SAN JERONIMO 123</p>
+                    </li>
+                    <li>
+                        <p><i class="fas fa-phone"></i> Teléfono: +34 123 456 789</p>
+                    </li>
+                    <li>
+                        <p><i class="fas fa-envelope"></i> Email: panaderiadeliciosaviciosa@gmail.com</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Iconos de Redes Sociales -->
+        <div class="row mt-4">
+            <div class="col-12 d-flex justify-content-center">
+                <ul class="list-unstyled d-flex justify-content-center gap-3">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="https://www.youtube.com" target="_blank">
+                            <i class="bi bi-youtube fs-3"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="https://www.facebook.com" target="_blank">
+                            <i class="bi bi-facebook fs-3"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="https://www.twitter.com" target="_blank">
+                            <i class="bi bi-twitter fs-3"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2025 Copyright:
+        <a class="text-dark" href="#">Panadería Deliciosa</a>
+        <br>
+        <strong style="font-size: 18px;">Hecho por Sergio y Chao</strong>
+    </div>
+</footer>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{/admin/layout/base}" lang="es">
+
+<head>
+    <title>Administración de Categorías</title>
+    <!-- Bootstrap CSS -->
+    <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <!-- Iconos de Bootstrap -->
+    <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css}" rel="stylesheet">
+</head>
+
+<body>
+    <div layout:fragment="mainBase">
+        <div class="container mt-4">
+            <h4 class="text-center mb-4">Vista de Categorías</h4>
+
+            <!-- Botón para agregar nueva categoría -->
+            <div class="d-flex justify-content-end mb-3">
+                <a class="btn btn-success">
+                    <i class="bi bi-plus-circle"></i> No se permiten *por ahora* más categorias jaja saludos
+                </a>
+            </div>
+
+            <!-- Tabla de Categorías -->
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Tipo</th>
+                            <th>Imagen</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="categoria : ${categorias}">
+                            <td th:text="${categoria.tipo}">Tipo</td>
+                            <td th:text="${categoria.imagen}">Imagen</td>
+                            <td th:text="${categoria.descripcion}">Descripción</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{/admin/layout/base}" lang="es">
+
+<head>
+    <title>Editar Producto</title>
+    <!-- Bootstrap CSS -->
+    <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <!-- Iconos de Bootstrap -->
+    <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css}" rel="stylesheet">
+</head>
+
+<body>
+    <div layout:fragment="mainBase">
+        <div class="container mt-4">
+            <h4 class="text-center mb-4">Editar Producto</h4>
+
+            <!-- Formulario de edición de producto -->
+            <form th:action="@{/admin/productos/editar/{id}(id=${producto.id})}" method="post" enctype="multipart/form-data">
+                <!-- Campo de nombre -->
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" th:value="${producto.nombre}" required>
+                </div>
+
+                <!-- Campo de descripción -->
+                <div class="mb-3">
+                    <label for="descripcion" class="form-label">Descripción</label>
+                    <input type="text" class="form-control" id="descripcion" name="descripcion" th:value="${producto.descripcion}" required>
+                </div>
+
+                <!-- Campo de precio -->
+                <div class="mb-3">
+                    <label for="precio" class="form-label">Precio</label>
+                    <input type="number" class="form-control" id="precio" name="precio" th:value="${producto.precio}" required>
+                </div>
+
+                <!-- Selección de categoría -->
+                <div class="mb-3">
+                    <label for="categoria" class="form-label">Categoría</label>
+                    <select class="form-select" id="categoria" name="categoria" required>
+                        <option th:each="categoria : ${categorias}" th:value="${categoria.tipo}" 
+                                th:text="${categoria.descripcion}" 
+                                th:selected="${producto.categoria.tipo == categoria.tipo}"></option>
+                    </select>
+                </div>
+
+                <!-- Campo para actualizar imagen -->
+                <div class="mb-3">
+                    <label for="imagen" class="form-label">Imagen</label>
+                    <input type="file" class="form-control" id="imagen" name="imagen">
+                    <img th:src="@{${producto.imagen}}" alt="Imagen del producto" class="img-fluid mt-2" width="100">
+                </div>
+
+                <!-- Botón para actualizar producto -->
+                <button type="submit" class="btn btn-primary">Actualizar Producto</button>
+                <a href="/admin/productos" class="btn btn-secondary">Cancelar</a>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</body>
+
+</html>

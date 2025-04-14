@@ -1,0 +1,241 @@
+/* Estilo general del body */
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #fefae0;
+    margin: 0;
+    padding: 0;
+    color: #5b3a29;
+    text-align: center; /* Centraliza todos los textos dentro del body */
+}
+
+/* Imagen de fondo de la página */
+.bg-image {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    filter: sepia(30%) brightness(90%);
+}
+
+.bg-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
+}
+
+/* Navbar - Estilos generales */
+.navbar-nav .nav-item,
+.navbar-nav .nav-link {
+    position: relative;
+    transition: transform 0.3s ease-in-out, color 0.3s ease;
+}
+
+.navbar-nav .nav-link {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #5b3a29;
+    display: inline-block;
+}
+
+/* Efecto de subrayado creciente */
+.navbar-nav .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 3px;
+    background-color: #b5835a;
+    transition: width 0.3s ease;
+}
+
+/* Animación de color y subrayado */
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus,
+.navbar-nav .nav-link.active {
+    color: #b5835a;
+    transform: scale(1.1);
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link:focus::after,
+.navbar-nav .nav-link.active::after {
+    width: 100%;
+}
+
+/* Contenido dentro de la imagen */
+.content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-align: center; /* Asegura que el texto esté centrado */
+    padding: 20px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Sección de "DÓNDE ENCONTRARNOS" */
+.ubicacion {
+    background-color: #fefae0;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Asegura que el texto esté centrado */
+}
+
+.ubicacion h5 .badge,
+.ubicacion .badge.bg-info {
+    background-color: #b5835a;
+    color: white;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+}
+
+.ubicacion p {
+    color: #5b3a29;
+}
+
+.ubicacion-img,
+img {
+    max-width: 100%;
+    border-radius: 15px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.ubicacion-img:hover,
+img.img-fluid:hover {
+    transform: scale(1.05);
+}
+
+.carousel-item img {
+    border-radius: 15px;
+    max-height: 500px; /* Ajusta la altura máxima según tus necesidades */
+    width: auto; /* Mantiene la relación de aspecto */
+    object-fit: contain; /* Asegura que la imagen se ajuste dentro del contenedor sin distorsionarse */
+}
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    padding: 10px;
+    text-align: center; /* Centraliza el texto de la leyenda del carrusel */
+}
+
+.carousel-inner {
+    max-height: 500px; /* Ajusta la altura máxima del carrusel */
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    opacity: 1;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    color: white;
+    font-size: 2rem;
+}
+
+/* Encabezados generales */
+h3, h4, h5, h6 {
+    color: #b5835a;
+    text-align: center; /* Centraliza los encabezados */
+}
+
+/* Responsividad de videos */
+.responsive-iframe {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.responsive-iframe iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 15px;
+}
+
+/* Mejoras en la estructura de los títulos */
+.big-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #b5835a;
+    text-align: center; /* Centraliza los títulos */
+}
+
+.big-text {
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: #5b3a29;
+    text-align: center; /* Centraliza el texto */
+}
+
+/* Media queries para responsividad */
+@media (max-width: 1200px) {
+    .bg-image { height: 350px; }
+}
+
+@media (max-width: 992px) {
+    .bg-image { height: 300px; }
+    .navbar-nav .nav-link { font-size: 1.1rem; }
+    .ubicacion { padding: 30px; }
+    .big-title { font-size: 1.85rem; }
+    .big-text { font-size: 1.25rem; }
+}
+
+@media (max-width: 768px) {
+    .bg-image { height: 250px; }
+    .navbar-nav .nav-link { font-size: 1rem; }
+    .ubicacion, #food img.img-fluid { padding: 20px; width: 80%; margin: 0 auto; }
+    .big-title { font-size: 1.75rem; }
+    .big-text { font-size: 1.2rem; }
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 40px;
+        height: 40px;
+    }
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .bg-image { height: 200px; }
+    .navbar-nav .nav-link { font-size: 0.9rem; }
+    .ubicacion, #food img.img-fluid { padding: 15px; width: 100%; }
+    .big-title { font-size: 1.5rem; }
+    .big-text { font-size: 1.1rem; }
+}
+
+@media (max-width: 480px) {
+    .bg-image { height: 150px; }
+    .navbar-nav .nav-link { font-size: 0.8rem; }
+    .ubicacion { padding: 10px; }
+    .big-title { font-size: 1.3rem; }
+    .big-text { font-size: 1rem; }
+}

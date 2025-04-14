@@ -1,0 +1,59 @@
+<header th:fragment="headerbase">
+    <!-- Botón para abrir/cerrar el menú lateral -->
+    <button class="btn btn-dark btn-sm position-fixed" type="button" onclick="toggleSidebar()" 
+    style="font-size: 1rem; padding: 0.3rem 0.8rem; z-index: 1050; top: 1rem; right: 1rem;">
+<i class="bi bi-list" style="font-size: 1.2rem;"></i> Menu
+</button>   
+    <!-- Sidebar -->
+    <nav class="bg-dark text-white sidebar" id="sidebar"
+        style="width: 300px; position: fixed; top: 0; left: 0; height: 100%; z-index: 1000; transform: translateX(-100%); transition: transform 0.3s ease;">
+        <div class="p-3 h-100">
+            <h4 class="text-center text-white mb-4" th:href="@{/admin}">Administración</h4>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/admin/productos" onclick="toggleSidebar()">
+                        <i class="bi bi-box-seam"></i> Gestionar Productos
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" th:href="@{/admin/categorias}" onclick="toggleSidebar()">
+                        <i class="bi bi-tags-fill"></i> Ver Categorías
+                    </a>
+                </li>
+                           
+                <li class="nav-item">
+                    <a class="nav-link text-white" th:href="@{/}" onclick="toggleSidebar()">
+                        <i class="bi bi-gear-fill"></i> Logout
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Overlay para cerrar el menú al hacer clic fuera -->
+    <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+            if (sidebar.style.transform === 'translateX(0%)') {
+                sidebar.style.transform = 'translateX(-100%)';
+                overlay.style.display = 'none';
+            } else {
+                sidebar.style.transform = 'translateX(0%)';
+                overlay.style.display = 'block';
+            }
+        }
+    </script>
+    <style>
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 99;
+            display: none;
+        }
+    </style>
+</header>

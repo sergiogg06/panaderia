@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{/www/layout/base}">
+<head>
+    <title>Inicio</title>
+</head>
+<body>
+<div layout:fragment="MainBase">
+    <section class="container py-5">
+        <div class="col-md-8 mx-auto p-4 border rounded shadow-lg bg-light-subtle">
+            <h2 class="text-center mb-4 fw-bold text-secondary">Contáctanos</h2>
+            <p class="text-center text-muted mb-4">Déjanos tu mensaje y te responderemos lo antes posible.</p>
+            <form action="/enviarMensaje" method="post">
+                <div class="mb-3">
+                    <label for="nombre" class="form-label fw-semibold text-dark">Nombre</label>
+                    <input type="text" class="form-control border-secondary shadow-sm bg-light text-dark" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label fw-semibold text-dark">Correo Electrónico</label>
+                    <input type="email" class="form-control border-secondary shadow-sm bg-light text-dark" id="email" name="email" placeholder="nombre@correo.com" required>
+                </div>
+                <div class="mb-3">
+                    <label for="mensaje" class="form-label fw-semibold text-dark">Mensaje</label>
+                    <textarea class="form-control border-secondary shadow-sm bg-light text-dark" id="mensaje" name="mensaje" rows="4" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-secondary btn-lg fw-bold">
+                        <i class="bi bi-send"></i> Enviar Mensaje
+                    </button>
+                </div>
+            </form>
+            
+            <!-- Mensaje de éxito -->
+            <p th:if="${exito}" class="text-success fw-bold text-center mt-3" th:text="${exito}"></p>
+            
+        </div>
+    </section>
+    
+    
+</div>
+</body>
+</html>
