@@ -33,8 +33,5 @@ public class ProductoService {
     public Producto getById(int id) {
         return this.productoRepository.findById(id).orElse(null); // Usamos orElse(null) para evitar excepciones
     }
-    public List<Producto> getByCategoria(String categoria) {
-        return productoRepository.findByCategoriaTipo(categoria);
-    }    
     
 }

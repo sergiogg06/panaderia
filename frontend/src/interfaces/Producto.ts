@@ -1,9 +1,10 @@
+import { Categoria } from './Categoria'
+
 export interface Producto {
-    id: number;             // PK
-    nombre: string;
-    categoria: string;      // FK -> Categoria.tipo
-    descripcion: string;
-    precio: number;
-    imagen: string;
-  }
-  
+  id: number;
+  nombre: string;
+  categoria: Categoria; // <- Antes era string
+  descripcion: string;
+  precio: number;
+  imagen: string;
+}

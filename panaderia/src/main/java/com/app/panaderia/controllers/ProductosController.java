@@ -3,12 +3,6 @@ package com.app.panaderia.controllers;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
-
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.app.panaderia.modelo.entidades.Producto;
 import com.app.panaderia.modelo.repositorios.ProductoRepository;
 
@@ -27,5 +21,10 @@ public class ProductosController {
     public List<Producto> getAllProductos() {
         return productoRepository.findAll();
     }
+    @GetMapping("/categoria/{tipo}")
+public List<Producto> getProductosPorCategoria(@PathVariable String tipo) {
+    return productoRepository.findByCategoria_Tipo(tipo);
+}
+
 }
 
