@@ -4,24 +4,32 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.app.panaderia.modelo.servicios.CategoriaService;
 import com.app.panaderia.modelo.entidades.Categoria;
+import com.app.panaderia.modelo.repositorios.CategoriaRepository;
+
 import org.springframework.ui.Model;
 
-@Controller
+@RestController
+@RequestMapping("/api/categorias")
+@CrossOrigin(origins = "http://localhost:5173")
 public class CategoriaController {
-    @Autowired
-    private CategoriaService catServ;
 
-    @GetMapping("/categorias")
-    public String getCategoria(Model modelo) {
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        List<Categoria> categorias = catServ.getAll();
-        categorias.forEach(System.out::println);
-        modelo.addAttribute("Lcategorias", categorias);
-        return "www/categorias/listar";
+    private final CategoriaRepository categoriaRepository;
+
+    public CategoriaController(CategoriaRepository categoriaRepository) {
+        this.categoriaRepository = categoriaRepository;
     }
+
+    @GetMapping
+    public List<Categoria> getCategorias() {
+        return categoriaRepository.findAll();
+    }
+
+    // Opcionales: POST, PUT, DELETE
 }

@@ -1,40 +1,31 @@
 package com.app.panaderia.controllers;
 
+import org.springframework.web.bind.annotation.*;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+
+
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import com.app.panaderia.modelo.servicios.ProductoService;
 import com.app.panaderia.modelo.entidades.Producto;
-import org.springframework.ui.Model;
+import com.app.panaderia.modelo.repositorios.ProductoRepository;
 
-@Controller
+@RestController
+@RequestMapping("/api/productos")
+@CrossOrigin(origins = "http://localhost:5173")
 public class ProductosController {
-    @Autowired 
-    private ProductoService pser;
 
-    @GetMapping("/productos")
-    public String getproducto(Model modelo) {
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        List<Producto> productos = pser.getAll();
-        productos.forEach(System.out::println);
-        modelo.addAttribute("Lproductos", productos);
-        return "www/productos/listar";
+    private final ProductoRepository productoRepository;
+
+    public ProductosController(ProductoRepository productoRepository) {
+        this.productoRepository = productoRepository;
     }
 
-
-    @GetMapping("/productos/categoria/{tipo}")
-    public String getProductosPorCategoria(@PathVariable("tipo") String tipo, Model modelo) {
-        List<Producto> productos = pser.getByCategoria(tipo); 
-        modelo.addAttribute("Lproductos", productos);
-        modelo.addAttribute("categoria", tipo);
-        return "www/productos/listar"; // Debe coincidir con la ubicación real de la plantilla
+    @GetMapping
+    public List<Producto> getAllProductos() {
+        return productoRepository.findAll();
     }
-    
-    
-
 }
+
