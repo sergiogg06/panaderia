@@ -18,7 +18,7 @@ const HomePage = () => {
           <div id="productCarousel" className="carousel slide" data-bs-ride="carousel">
             <div className="carousel-inner">
               <div className="carousel-item active">
-                <img src="/img/productos/dulces/dulce4.jpeg" className="d-block mx-auto" alt="Dulces" />
+                <img src="/img/productos/dulces/dulce9.jpeg" className="d-block mx-auto" alt="Dulces" />
                 <div className="carousel-caption d-none d-md-block">
                   <h3>Dulces</h3>
                   <p>Deliciosos dulces para satisfacer tu antojo.</p>
@@ -26,7 +26,7 @@ const HomePage = () => {
               </div>
 
               <div className="carousel-item">
-                <img src="/img/productos/pan/pan48.jpeg" className="d-block mx-auto" alt="Pan" />
+                <img src="/img/productos/pan/pan49.jpeg" className="d-block mx-auto" alt="Pan" />
                 <div className="carousel-caption d-none d-md-block">
                   <h3>Pan</h3>
                   <p>Pan fresco y crujiente, recién horneado.</p>
@@ -34,7 +34,7 @@ const HomePage = () => {
               </div>
 
               <div className="carousel-item">
-                <img src="/img/productos/salado/salado27.jpeg" className="d-block mx-auto" alt="Salado" />
+                <img src="/img/productos/salado/salado37.jpeg" className="d-block mx-auto" alt="Salado" />
                 <div className="carousel-caption d-none d-md-block">
                   <h3>Salado</h3>
                   <p>Aperitivos salados para disfrutar en cualquier momento.</p>
