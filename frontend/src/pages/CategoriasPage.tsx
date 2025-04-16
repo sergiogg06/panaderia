@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Categoria } from '@/interfaces/Categoria'
 import { getCategorias } from '@/services/categoriasService'
 import { Link } from 'react-router-dom'
+import Footer from '@/components/footer'
 
 const BACKEND_URL = 'http://localhost:8080' // podrías pasarlo a .env más adelante
 
@@ -15,7 +16,7 @@ const CategoriasPage = () => {
   }, [])
 
   return (
-    <div className="container mt-4">
+    <><div className="container mt-4">
       <section id="servicios">
         <h2 className="mb-4 text-center">Listado de Categorías</h2>
 
@@ -27,8 +28,7 @@ const CategoriasPage = () => {
                   src={`${BACKEND_URL}${categoria.imagen}`}
                   className="card-img-top"
                   alt={categoria.tipo}
-                  style={{ objectFit: 'cover', height: '200px' }}
-                />
+                  style={{ objectFit: 'cover', height: '200px' }} />
                 <div className="card-body">
                   <h5 className="card-title">{categoria.tipo}</h5>
                   <p className="card-text">{categoria.descripcion}</p>
@@ -43,7 +43,7 @@ const CategoriasPage = () => {
           ))}
         </div>
       </section>
-    </div>
+    </div><Footer /></>
   )
 }
 

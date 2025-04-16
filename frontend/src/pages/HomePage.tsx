@@ -1,5 +1,7 @@
 import '@/assets/home.css'
+import Footer from '@/components/footer'
 import ProductCarousel from '@/components/ProductCarrusel'
+
 
 const HomePage = () => {
   return (
@@ -49,16 +51,16 @@ const HomePage = () => {
       <hr />
 
       <section className="container py-5 text-center">
-        <div className="responsive-iframe">
-          <iframe
-            src="https://www.youtube.com/embed/Aw73bVIv4cs?si=ZSjkk2GUoYgXu7cU"
-            title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-          ></iframe>
-        </div>
-      </section>
-
+  <div className="responsive-iframe">
+    <iframe
+      src="https://www.youtube.com/embed/Aw73bVIv4cs?si=ZSjkk2GUoYgXu7cU"
+      title="YouTube video player"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowFullScreen
+    ></iframe>
+  </div>
+</section>
+      <Footer />
       <hr />
     </>
   )

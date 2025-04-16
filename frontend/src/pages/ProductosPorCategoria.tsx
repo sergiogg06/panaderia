@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getProductosPorCategoria } from '@/services/productosService'
 import { Producto } from '@/interfaces/Producto'
+import Footer from '@/components/footer'
 
 const BACKEND_URL = 'http://localhost:8080'
 
