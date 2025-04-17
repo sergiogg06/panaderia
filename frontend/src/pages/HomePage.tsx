@@ -60,7 +60,7 @@ const HomePage = () => {
     ></iframe>
   </div>
 </section>
-      <Footer />
+      
       <hr />
     </>
   )

@@ -6,7 +6,7 @@ const ProductosPage = () => {
     <><div className="container mt-5">
       <h2 className="mb-4">Productos</h2>
       <ProductosList />
-    </div><Footer /></>
+    </div></>
   )
 }
 

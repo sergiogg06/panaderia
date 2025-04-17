@@ -43,7 +43,7 @@ const CategoriasPage = () => {
           ))}
         </div>
       </section>
-    </div><Footer /></>
+    </div></>
   )
 }
 
